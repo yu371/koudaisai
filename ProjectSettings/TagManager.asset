@@ -7,6 +7,10 @@ TagManager:
   - map
   - minimap
   - text
+  - target
+  - ballet
+  - cadevar
+  - enemy
   layers:
   - Default
   - TransparentFX

@@ -11,6 +11,7 @@ public class grab_move : MonoBehaviour
     public Vector3 map;
     private bool true_false;
     private TextMeshProUGUI textMeshProUGUI;
+    private Rigidbody rd;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,18 +28,23 @@ public class grab_move : MonoBehaviour
     {
         if(true_false == true)
         {
-        pos.position = (transform.position - minimap)*1000 + map;
+        pos.position = (transform.position - minimap)*500 + map;
         pos.rotation = transform.rotation; 
         }
   
     }
     public void Grab()
     {
-    pos = GameObject.Find("a" +this.name).transform;
+    GameObject copy = GameObject.Find("a"+this.name);
+    pos = copy.transform;
+    rd =copy.GetComponent<Rigidbody>();
+    rd.useGravity = false;
     true_false = true;
+
     } 
     public void ungrab()
     {
+    rd.useGravity = true;
     true_false = false;
     }
 
