@@ -9,7 +9,7 @@ public class scenechange : MonoBehaviour
  
     void Start()
     {
-      Invoke("ChangeScene",10f);
+    
     }
     // Update is called once per frame
     void Update () {

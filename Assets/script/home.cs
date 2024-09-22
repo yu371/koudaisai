@@ -19,6 +19,7 @@ public class home : MonoBehaviour
      public enemyinstance c;
      public enemyinstance d;
      public enemyinstance e;
+
     //  public enemyinstance f;
     // public enemyinstance g;
     void Start()
@@ -32,11 +33,12 @@ public class home : MonoBehaviour
     void Update ()
     {
     }
-    void OnCollisionEnter(Collision collider)
+   
+    void OnTriggerEnter(Collider other)
     {
-      if (collider.gameObject.tag == "enemy")
+     if (other.gameObject.tag == "enemy")
         {
-            int damage = 10;
+            int damage = 50;
             Debug.Log("damage : " + damage);
             currentHp = currentHp - damage;
             slider.value = (float)currentHp / (float)maxHp; ;
@@ -45,7 +47,11 @@ public class home : MonoBehaviour
             score.AddPoint();
             GameFinish();
             }
-        }
+        } 
+    }
+    void OnCollisionEnter(Collision collider)
+    {
+     
     }
     public void GameStart()
     {
@@ -55,17 +61,16 @@ public class home : MonoBehaviour
         currentHp = maxHp;
         Debug.Log("Start currentHp : " + currentHp);
     }
+ 
     public void GameFinish()
     {
+       GameObject.FindWithTag("Ranking").GetComponent<LocalRankingboard>().Scoresend(score.point);   
 
        enemyinstance.GameFinish();
        a.GameFinish();
        b.GameFinish();
        c.GameFinish();
-       d.GameFinish();
        e.GameFinish();
-    //    f.GameFinish();
-    //    g.GameFinish();
        
        GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
         
@@ -78,6 +83,11 @@ public class home : MonoBehaviour
         {
             Destroy(cadevar); 
         }
-        SceneManager.LoadScene("home");
+        Invoke("LoadScene",10f);
+     
+    }
+    void LoadScene()
+    {
+    SceneManager.LoadScene("home");
     }
 }

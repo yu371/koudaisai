@@ -13,6 +13,14 @@ public class StartGame : MonoBehaviour
     [SerializeField] private NavMeshSurface surface;
     public void Build()
     {
-        surface.BuildNavMesh();
+
+    }
+    void Start()
+    {
+          Invoke("Build2",60f);
+    }
+    private void Build2()
+    {
+      surface.BuildNavMesh();
     }
 }

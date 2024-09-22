@@ -9,11 +9,12 @@ public class enemyinstance : MonoBehaviour
     public float instancespan;
     public bool on_off;
     public GameObject ghoost;
+    public float mai;
     // Start is called before the first frame update
     void Start()
     {
     on_off = false;
-    instancespan = 5f;
+      Invoke("Game",60f);
     }
     void Update()
     {
@@ -25,9 +26,8 @@ public class enemyinstance : MonoBehaviour
         if(span >= instancespan)
         {
         span = 0;
-        instancespan -= 0.1f;
+        instancespan -= mai;
         Instantiate(enemy,transform.position,Quaternion.identity);
-
         }
         }
         else
@@ -44,8 +44,11 @@ public class enemyinstance : MonoBehaviour
     }
    public void Gamestart()
     {
+    Invoke("Game",60f);
+    }
+    private void Game()
+    {
     on_off = true;
-    instancespan = 5f;
     }
     public void GameFinish()
     {

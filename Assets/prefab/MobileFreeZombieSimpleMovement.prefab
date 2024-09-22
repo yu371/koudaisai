@@ -958,6 +958,7 @@ GameObject:
   - component: {fileID: 2524266829334432509}
   - component: {fileID: 6496270318573146077}
   - component: {fileID: 258445646033882207}
+  - component: {fileID: 4021726090723379290}
   m_Layer: 0
   m_Name: MobileFreeZombieSimpleMovement
   m_TagString: enemy
@@ -1091,6 +1092,27 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &4021726090723379290
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8693796081727950992}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.4232922, z: 1}
+  m_Center: {x: 0, y: 0.70820284, z: 0}
 --- !u!1 &8710523191525310711
 GameObject:
   m_ObjectHideFlags: 0

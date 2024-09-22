@@ -8,6 +8,7 @@ public class textform : MonoBehaviour
       private TouchScreenKeyboard overlayKeyboard;
     public static string inputText = "";
     public TextMeshProUGUI textMeshProUGUI;
+    public LocalRankingboard localRankingboard;
     // Start is called before the first frame update
 
     // Start is called before the first frame update
@@ -20,11 +21,14 @@ public class textform : MonoBehaviour
     void Update()
     {
         // Aボタンを押した時にシステムキーボードを出す例
-if (OVRInput.GetDown(OVRInput.Button.One))
-{
+    if (OVRInput.GetDown(OVRInput.Button.One))
+    {
 	overlayKeyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
+    }
     textMeshProUGUI.text = overlayKeyboard.text;
-}
- 
+      if (OVRInput.GetDown(OVRInput.Button.Two))
+    {
+    localRankingboard.SaveName(overlayKeyboard.text);
+    }
     }
 }
