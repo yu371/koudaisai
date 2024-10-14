@@ -20,17 +20,31 @@ public class grab_move : MonoBehaviour
         minimap = GameObject.FindWithTag("minimap").transform.position;
         textMeshProUGUI = GameObject.FindWithTag("text").GetComponent<TextMeshProUGUI>();
         
-                
+    GameObject copy = GameObject.Find("a"+this.name);
+    if(copy != null)
+    {
+        pos = copy.transform;
+    rd =copy.GetComponent<Rigidbody>();
+    rd.isKinematic = true;
+    true_false = true;  
+    }
+   
     }
 
     // Update is called once per frame
     void Update()
     {
+        // if(pos != null)
+        // {
+        //        pos.position = (transform.position - minimap)*500 + map;
+        // pos.rotation = transform.rotation; 
+        // }
         if(true_false == true)
         {
         pos.position = (transform.position - minimap)*500 + map;
         pos.rotation = transform.rotation; 
         }
+        
   
     }
     public void Grab()
@@ -38,13 +52,13 @@ public class grab_move : MonoBehaviour
     GameObject copy = GameObject.Find("a"+this.name);
     pos = copy.transform;
     rd =copy.GetComponent<Rigidbody>();
-    rd.useGravity = false;
+    rd.isKinematic = true;
     true_false = true;
 
     } 
     public void ungrab()
     {
-    rd.useGravity = true;
+    rd.isKinematic = false;
     true_false = false;
     }
 

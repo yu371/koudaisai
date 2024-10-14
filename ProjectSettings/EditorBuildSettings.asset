@@ -8,9 +8,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/home.unity
     guid: d13da1d7c4a8b2a479f80d532339fb9b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scene/test.unity
     guid: 45c4ee7ff00b64d459839afad4f28f30
+  - enabled: 0
+    path: Assets/Oculus/Interaction/Samples/Scenes/Examples/HandGrabUseExamples.unity
+    guid: 509f8fa80c708b343a603a4771d35c85
+  - enabled: 0
+    path: Assets/Oculus/Interaction/Samples/Scenes/Examples/TransformerExamples.unity
+    guid: 7475942f60c376744ba1ec487d140105
+  - enabled: 1
+    path: Assets/Scene/Main.unity
+    guid: ba2c27f7f3f157b468202cf9c40d69b3
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 906bc79d339521c48ac640d48726c7a9, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 3bd30dab149b53e4096c1febdde966bb, type: 2}

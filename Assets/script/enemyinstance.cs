@@ -10,16 +10,24 @@ public class enemyinstance : MonoBehaviour
     public bool on_off;
     public GameObject ghoost;
     public float mai;
+    private float ghoostspan;
+    public float GhostTime = 20f;
     // Start is called before the first frame update
     void Start()
     {
     on_off = false;
-      Invoke("Game",60f);
+      Invoke("Game",30f);
     }
     void Update()
     {
     if(on_off == true)
     {
+        ghoostspan += Time.deltaTime;
+        if(ghoostspan >=GhostTime)
+        {
+        // ghoostspan = 0;
+        // Instantiate(ghoost,transform.position, Quaternion.identity);
+        }
         span +=Time.deltaTime;
         if(instancespan >= 0.5f)
         {
@@ -34,6 +42,7 @@ public class enemyinstance : MonoBehaviour
         {
          if(span >= 0.5f)
         {
+   
         span = 0;
         Instantiate(enemy,transform.position,Quaternion.identity);
 
@@ -44,7 +53,7 @@ public class enemyinstance : MonoBehaviour
     }
    public void Gamestart()
     {
-    Invoke("Game",60f);
+    Invoke("Game",30f);
     }
     private void Game()
     {

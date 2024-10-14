@@ -3,23 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Dynamic;
 
 public class home : MonoBehaviour
 {
   //最大HPと現在のHP。
-    int maxHp = 100;
-    int currentHp;
+    public int maxHp = 100;
+    public int currentHp;
     //Sliderを入れる
     public Slider slider;
     public score score;
-    public GameObject sliderobj;
-    public enemyinstance enemyinstance;
-    public enemyinstance a;
-    public enemyinstance b;
-     public enemyinstance c;
-     public enemyinstance d;
-     public enemyinstance e;
-
+    public bool golemon_off = true;  // 攻撃がオンかオフかを制御するフラグ
     //  public enemyinstance f;
     // public enemyinstance g;
     void Start()
@@ -34,25 +28,17 @@ public class home : MonoBehaviour
     {
     }
    
-    void OnTriggerEnter(Collider other)
+
+    void OnTriggerStay(Collider other)
     {
-     if (other.gameObject.tag == "enemy")
-        {
-            int damage = 50;
-            Debug.Log("damage : " + damage);
-            currentHp = currentHp - damage;
-            slider.value = (float)currentHp / (float)maxHp; ;
-            if(currentHp <= 0)
-            {
-            score.AddPoint();
-            GameFinish();
-            }
-        } 
+        // Golemタグを持つオブジェクトに対する処理
     }
-    void OnCollisionEnter(Collision collider)
-    {
-     
-    }
+  
+  
+  
+    
+    // Golemが3秒おきに攻撃するコルーチン
+    // Golemが攻撃をする関数
     public void GameStart()
     {
         //Sliderを満タンにする。
@@ -64,13 +50,7 @@ public class home : MonoBehaviour
  
     public void GameFinish()
     {
-       GameObject.FindWithTag("Ranking").GetComponent<LocalRankingboard>().Scoresend(score.point);   
 
-       enemyinstance.GameFinish();
-       a.GameFinish();
-       b.GameFinish();
-       c.GameFinish();
-       e.GameFinish();
        
        GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
         
@@ -78,8 +58,25 @@ public class home : MonoBehaviour
         {
             Destroy(enemy); // オブジェクトを削除
         }
+          GameObject[] ghoost = GameObject.FindGameObjectsWithTag("instance");
+        
+        foreach (GameObject ghos in ghoost)
+        {
+            Destroy(ghos); // オブジェクトを削除
+        }
+          GameObject[] golems = GameObject.FindGameObjectsWithTag("Golem");
+        
+        foreach (GameObject enemy in golems)
+        {
+            Destroy(enemy); // オブジェクトを削除
+        }
         GameObject[] cadevars = GameObject.FindGameObjectsWithTag("cadevar");
         foreach (GameObject cadevar in cadevars)
+        {
+            Destroy(cadevar); 
+        }
+        GameObject[] bigzon = GameObject.FindGameObjectsWithTag("bigzon");
+        foreach (GameObject cadevar in bigzon)
         {
             Destroy(cadevar); 
         }

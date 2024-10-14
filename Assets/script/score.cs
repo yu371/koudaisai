@@ -12,34 +12,49 @@ public class score : MonoBehaviour
     private List<int> pointList = new List<int>(); // ポイントのリスト
     public bool On_off1;
     public GameObject minimap;
-
+    private int obspoint;
+    public obsinstance obsinstance;
+    public float gametime;
     void Start()
     {   
+    gametime = -30;
     
         // LoadPoints(); 
         // UpdatePointList(); 
-    Invoke("StartGame",60f);
+    Invoke("StartGame",30);
      On_off1 = true;
-     Invoke("off",60f);
+     Invoke("off",30);
 
     }
 
     public void Point()
     {
+        obspoint +=1;
+        if(obspoint >= 50)
+        {
+        obspoint -=50;
+        }
         point += 100; 
         UpdatePointText();
     }
+    public void customPoint(int addpoint)
+    {
+      point += addpoint; 
+        UpdatePointText();
+    }
+
    private float time;
     
     void Update()
     {
+        gametime += Time.deltaTime;
         if(On_off1 == true)
         {
           time += Time.deltaTime;
         //time変数をint型にし制限時間から引いた数をint型のlimit変数に代入
-        int remaining = 60 - (int)time;
+        int remaining = 30 - (int)time;
         //timerTextを更新していく
-        pointText.text = $"のこり：{remaining.ToString("D3")}";
+        pointText.text =$"{remaining.ToString("D3")}";
         }
       
     }
@@ -57,18 +72,20 @@ public class score : MonoBehaviour
     }
     private void StartGame()
     {
+        pointText.text = "";
          point = 0;
         UpdatePointText();
-        Destroy(minimap);  
     }
 
 
     public void GameFinish()
     {
-        AddPoint(); // ポイントを追加
-        UpdatePointText(); // UIを更新
-        GameObject.FindWithTag("Ranking").GetComponent<LocalRankingboard>().Scoresend(1000000);   
-        }
+    pointText.text = "Lose";
+    }
+    public void GameWin()
+    {
+    pointText.text = "Win";
+    }
 
     // ポイントを追加するメソッド
     public void AddPoint()
@@ -82,7 +99,7 @@ public class score : MonoBehaviour
     // ポイント表示を更新するメソッド
     void UpdatePointText()
     {
-        pointText.text = "point: " + point;
+
     }
 
     // // ポイントリストを更新するメソッド
@@ -97,12 +114,7 @@ public class score : MonoBehaviour
     //         pointListText.text += (i + 1) + ": " + pointList[i] + "\n";
     //     }
     // }
-    void SavePoints()
-    {
-        string pointsString = string.Join(",", pointList);
-        PlayerPrefs.SetString("PointList", pointsString);
-        PlayerPrefs.Save();
-    }
+
 
     // ポイントリストを読み込むメソッド
     // void LoadPoints()

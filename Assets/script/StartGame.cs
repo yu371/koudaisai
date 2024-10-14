@@ -6,21 +6,16 @@ public class StartGame : MonoBehaviour
 {
     void Update ()
     {
-         if (Input.GetKey(KeyCode.A))
-           Build();
     }
     
     [SerializeField] private NavMeshSurface surface;
+    private float span;
     public void Build()
     {
 
     }
     void Start()
     {
-          Invoke("Build2",60f);
-    }
-    private void Build2()
-    {
-      surface.BuildNavMesh();
+      Invoke("Build2",60f);
     }
 }

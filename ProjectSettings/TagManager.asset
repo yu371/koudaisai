@@ -12,6 +12,23 @@ TagManager:
   - cadevar
   - enemy
   - Ranking
+  - Gun
+  - building
+  - SamplesInfoPanel
+  - FxTemporaire
+  - Obstacle
+  - Obstcales
+  - Golem
+  - Collide
+  - ghoost
+  - build
+  - Home
+  - test
+  - bigzon
+  - worldranking
+  - obsinstance
+  - instance
+  - isground
   layers:
   - Default
   - TransparentFX
