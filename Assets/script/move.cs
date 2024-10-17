@@ -15,16 +15,21 @@ public class move : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        true_false = false;
+        true_false = true;
         map = GameObject.FindWithTag("map").transform.position;
         minimap = GameObject.FindWithTag("minimap").transform.position;
         copy = Instantiate(copyobj,(transform.position - minimap)*80 + map,transform.rotation);
+        Invoke("test",5f);
 
     if(copy != null)
     {
         pos = copy.transform;
     }
    
+    }
+    public void test()
+    {
+        true_false = false;
     }
 
     // Update is called once per frame
@@ -47,16 +52,11 @@ public class move : MonoBehaviour
     public void Grab()
     {
     pos = copy.transform;
-    rd =copy.GetComponent<Rigidbody>();
-    rd.isKinematic = true;
-    rd.useGravity = false;
     true_false = true;
 
     } 
     public void ungrab()
     {
-    rd.isKinematic = false;
-    rd.useGravity = true;
     true_false = false;
     }
 }

@@ -127,7 +127,7 @@ public class LocalRankingboard : MonoBehaviour
     }
 
     // ランキングボードを更新する（表示する）
-    private void UpdateRankingBoard()
+     private void UpdateRankingBoard()
     {
         
         int K =0;
@@ -140,7 +140,36 @@ public class LocalRankingboard : MonoBehaviour
             {
              if (newdic.ContainsKey(entry.Key))
              {
-            text += $"{K}位:{entry.Key}: {entry.Value+"秒"}\n";
+            string sc = "";
+            if(entry.Value <= 40f)
+            {
+            sc = "SS";
+            }
+            else if(entry.Value <= 50f)
+            {
+            sc = "S";
+            }
+               else if(entry.Value <= 60f)
+            {
+            sc = "A";
+            }
+               else if(entry.Value <= 70f)
+            {
+            sc = "B";
+            }
+               else if(entry.Value <= 90f)
+            {
+            sc = "C";
+            }
+               else if(entry.Value <= 500)
+            {
+            sc = "D";
+            }
+            else
+            {
+            sc = "Z";
+            }
+            text += $"{K}位:{entry.Key}: {entry.Value+"秒"}:{sc}\n";
              }
              else
              {

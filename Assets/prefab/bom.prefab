@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3224217156959477115}
   m_Layer: 0
   m_Name: bom
-  m_TagString: ballet
+  m_TagString: rocket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 37.18, y: -11.317046, z: 174.97966}
-  m_LocalScale: {x: 1.8131, y: 1.8131, z: 1.8131}
+  m_LocalScale: {x: 2.7676961, y: 2.7676961, z: 2.7676961}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -4910,7 +4910,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1
+  m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2142471791136677671
 MonoBehaviour:

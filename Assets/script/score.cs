@@ -80,11 +80,11 @@ public class score : MonoBehaviour
 
     public void GameFinish()
     {
-    pointText.text = "Lose";
+    pointText.text = "Game Over";
     }
     public void GameWin()
     {
-    pointText.text = "Win";
+    pointText.text = "Clear";
     }
 
     // ポイントを追加するメソッド

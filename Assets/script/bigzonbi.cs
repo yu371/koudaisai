@@ -31,12 +31,7 @@ public class bigzonbi : MonoBehaviour
         score = GameObject.FindWithTag("text").GetComponent<score>();
           RotateTowardsTarget();
           audioSource = GetComponent<AudioSource>();
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
-        
-        foreach (GameObject enemy in enemies)
-        {
-            Destroy(enemy); // オブジェクトを削除
-        }
+     
     }
     
       void RotateTowardsTarget()
@@ -74,7 +69,7 @@ public class bigzonbi : MonoBehaviour
         
         if(this.tag != "cadevar")
         {
-            float damage = 0.8f;
+            float damage = 0.5f;
             Debug.Log("damage : " + damage);
             currentHp = currentHp - damage;
             slider.value = (float)currentHp / (float)maxHp;
@@ -87,6 +82,25 @@ public class bigzonbi : MonoBehaviour
             Home.GameFinish();
             Destroy(gameObject);
             score.customPoint(10000);
+            }
+        }
+        }
+        if(other.transform.tag == "rocket")
+        {
+           if(this.tag != "cadevar")
+        {
+            float damage = 5f;
+            Debug.Log("damage : " + damage);
+            currentHp = currentHp - damage;
+            slider.value = (float)currentHp / (float)maxHp;
+            if(currentHp <= 0)
+            {
+            GameObject.FindWithTag("Ranking").GetComponent<LocalRankingboard>().Scoresend(score.gametime);
+            RenderSettings.skybox = sky;
+            animator.SetBool("Death",true);
+            score.GameWin();
+            Home.GameFinish();
+            Destroy(gameObject);
             }
         }
         }

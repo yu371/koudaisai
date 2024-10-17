@@ -34,6 +34,7 @@ public class bullet : MonoBehaviour
   {
     if(other.gameObject.tag == "enemy")
     {
+   
     Destroy();
     }
     else if(other.gameObject.tag == "bigzon")

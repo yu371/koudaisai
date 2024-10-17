@@ -96,6 +96,17 @@ public class ZombieCharacterControl : MonoBehaviour
         {
         obsHp = other.GetComponent<obsHp>();
         }
+        else if(other.transform.tag == "rocket")
+        {
+         Destroy(gameObject,3f);
+        this.tag = "cadevar";
+        score.Point();
+        m_navMeshAgent.isStopped = true;
+        m_animator.SetBool("Dead",true);
+        m_animator.SetBool("Attack",false);
+        Death_check = false;
+        GameObject.Find("zonbicounter").GetComponent<zonbicounter>().zonbicount +=1;  
+        }
         
     }
    private void OnTriggerStay(Collider other)

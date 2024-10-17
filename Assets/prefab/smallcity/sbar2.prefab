@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2742795242651909634}
   - component: {fileID: 5269972360731907240}
   - component: {fileID: 7913956567726158791}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: sbar2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
@@ -240,7 +240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3562400839018306706}
   - component: {fileID: 7004387361231927129}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
